@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitForge + UX Design Lab</title>
+  <meta name="description" content="Fitness guide plus UX design lab activities for learning and health." />
+  <style>
+    /* ===== FitForge Styles ===== */
+    :root{
+      --bg:#f6fbff;
+      --card:#ffffff;
+      --accent:#0b76ff;
+      --accent-2:#00c2a8;
+      --muted:#6a6f77;
+      --shadow: 0 8px 26px rgba(11,118,255,0.06);
+      --radius:14px;
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#f6fbff 0%, #ffffff 60%);
+      color:#0c1221; -webkit-font-smoothing:antialiased; line-height:1.5; padding:32px 18px; display:flex; justify-content:center;
+    }
+    .container{width:100%;max-width:var(--max-width)}
+
+    header, footer, section, aside, nav, main { margin-bottom: 24px }
+
+    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+
+    /* ===== UX Design Lab Styles (Scoped) ===== */
+    .ux-lab * {
+      box-sizing: border-box;
+    }
+    .ux-lab {
+      font-family: system-ui, Segoe UI, Roboto, Arial;
+      margin-top: 40px;
+    }
+    .ux-lab .card {
+      border:1px solid #e6e6e6;
+      padding:16px;
+      border-radius:8px;
+      background:#fff;
+    }
+    .ux-lab label {
+      display: block;
+      margin: 8px 0;
+    }
+    .ux-lab input, .ux-lab select, .ux-lab textarea, .ux-lab button {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font: inherit;
+    }
+    .ux-lab button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .ux-lab .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .ux-lab .wire {
+      min-height: 180px;
+      border: 2px dashed #ddd;
+      padding: 8px;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .ux-lab .grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
+    }
+    @media (max-width: 800px) {
+      .ux-lab .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- FitForge Header -->
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">FF</div>
+        <div>
+          <h1>FitForge</h1>
+          <p>Build strength • Learn form • Track progress</p>
+        </div>
+      </a>
+      <nav>
+        <a href="#workouts">Workouts</a>
+        <a href="#nutrition">Nutrition</a>
+        <a href="#uxlab">UX Lab</a>
+        <a class="cta" href="#start">Start Now</a>
+      </nav>
+    </header>
+
+    <!-- FitForge Main Content -->
+    <main>
+      <!-- You can include your FitForge sections here as-is -->
+      <!-- ... (for brevity, skipping full FitForge content) -->
+
+      <!-- Merged UX Design Lab Section -->
+      <section id="uxlab" class="ux-lab">
+        <h2>UX Design Lab — Intro & Hands-on</h2>
+        <p class="small">Short interactive exercises on core UX: personas, usability testing, accessibility, and wireframes.</p>
+
+        <div class="grid">
+          <main>
+            <section class="card">
+              <h3>1. Create Persona</h3>
+              <label>Name <input id="personaName" placeholder="Sonal, Raj..."/></label>
+              <label>Age <input id="personaAge" type="number" min="14" max="100"/></label>
+              <label>Primary goal <input id="personaGoal" /></label>
+              <label>Frustrations <input id="personaFrustration" /></label>
+              <button id="makePersona">Generate Persona</button>
+              <div id="personaOut" style="margin-top:10px"></div>
+            </section>
+
+            <section class="card" style="margin-top:16px">
+              <h3>2. Usability Task</h3>
+              <p class="small">3-step flow: Find → Add → Checkout</p>
+              <textarea id="taskNotes" rows="3" placeholder="Observer notes..."></textarea>
+              <button id="submitTask">Record task result</button>
+              <div id="taskResult" style="margin-top:8px"></div>
+            </section>
+
+            <section class="card" style="margin-top:16px">
+              <h3>3. Accessible Form</h3>
+              <form id="accessForm" novalidate>
+                <label>Full name <input id="fullName" required aria-required="true" /></label>
+                <label>Email <input id="email" type="email" required aria-required="true" /></label>
+                <label>Plan <select id="plan"><option>Free</option><option>Pro</option><option>Enterprise</option></select></label>
+                <button type="submit">Sign up</button>
+              </form>
+              <div id="formFeedback" role="status" aria-live="polite" style="margin-top:8px"></div>
+            </section>
+
+            <section class="card" style="margin-top:16px">
+              <h3>4. Wireframe Sketch</h3>
+              <div class="wire" contenteditable="true" aria-label="Wireframe canvas" spellcheck="false">
+Header
+
+- Hero heading
+- CTA
+
+Section: Features
+
+Footer
+              </div>
+              <div style="margin-top:8px">
+                <button id="saveWire">Save</button>
+                <button id="resetWire">Reset</button>
+              </div>
+              <div id="wireSaved" class="small" style="margin-top:6px"></div>
+            </section>
+          </main>
+
+          <aside>
+            <section class="card">
+              <h4>Checklist</h4>
+              <ul class="small">
+                <li>Is the task obvious?</li>
+                <li>Labels clear?</li>
+                <li>Keyboard usable?</li>
+                <li>Error handling?</li>
+              </ul>
+            </section>
+
+            <section class="card" style="margin-top:16px">
+              <h4>Contrast Checker</h4>
+              <label>Foreground <input id="fg" value="#0f172a"/></label>
+              <label>Background <input id="bg" value="#ffffff"/></label>
+              <button id="checkContrast">Check</button>
+              <div id="contrastOut" class="small" style="margin-top:8px"></div>
+            </section>
+
+            <section class="card" style="margin-top:16px">
+              <h4>Observer Notes</h4>
+              <div id="observerNotes" class="small">No results yet.</div>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div>Created for beginners • Fitness + UX learning hub.</div>
+      <div style="color:var(--muted);font-size:12px">© FitForge + UX Lab — Learn, Build, Improve</div>
+    </footer>
+  </div>
+
+  <!-- Optional: JS functionality (if you want to add) -->
+</body>
+</html>
