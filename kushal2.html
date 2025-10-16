@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Model Example</title>
+<style>
+div {
+width: 100px;
+height: 100px;
+padding: 10px;
+border: 2px solid black;
+margin: 20px;
+}
+</style>
+</head>
+<body>
+<h2>science</h2>
+<div>Profssor jd subject:physics.</div>
+</body>
+</html>
+
+Layout
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<style>
+.grid-container {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+
+gap: 10px;
+}
+.grid-container div {
+background-color: yellow;
+padding: 20px;
+text-align: center;
+border: 1px solid #333;
+}
+</style>
+
+</head>
+<body>
+<h2>others subject</h2>
+<div class="grid-container">
+<div>chemistry</div>
+<div>biology</div>
+<div>electonics</div>
+</div>
+</body>
+</html>
